@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동 | 포트폴리오</title>
+    <style>
+        /* --- 1. 기본 설정 및 변수 --- */
+        :root {
+            --primary-color: #2563eb; /* 메인 파란색 */
+            --text-color: #333;       /* 글자색 */
+            --bg-color: #f8f9fa;      /* 배경색 */
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- 2. 레이아웃 & 헤더 --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* --- 3. 공통 섹션 스타일 --- */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        /* --- 4. 메인 히어로 섹션 --- */
+        #home {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: var(--white);
+        }
+
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover { background-color: #1d4ed8; }
+
+        /* --- 5. 소개 & 스킬 --- */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .skills-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background-color: #e0e7ff;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* --- 6. 프로젝트 (카드 디자인) --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #ddd; /* 이미지 대신 회색 배경 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body h3 { margin-bottom: 10px; }
+        .card-body p { color: #666; margin-bottom: 15px; font-size: 0.95rem; }
+
+        /* --- 7. 연락처 & 푸터 --- */
+        .contact-info {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* --- 8. 모바일 반응형 --- */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            #home h1 { font-size: 2rem; }
+        }
+        
+        /* 부드러운 스크롤 */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Hong's Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="#home">홈</a></li>
+                <li><a href="#about">소개</a></li>
+                <li><a href="#projects">프로젝트</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>안녕하세요,<br>웹 개발자 홍길동입니다.</h1>
+        <p>사용자 경험을 중요시하며, 깔끔한 코드를 작성하는 것을 좋아합니다.</p>
+        <a href="#projects" class="btn">프로젝트 보기</a>
+    </section>
+
+    <section id="about">
+        <h2>👋 소개 & 스킬</h2>
+        <div class="about-content">
+            <div style="flex: 1; min-width: 300px;">
+                <h3>"꾸준히 성장하는 개발자"</h3>
+                <br>
+                <p>안녕하세요! 문제를 해결하는 과정에서 즐거움을 느끼는 개발자입니다. 새로운 기술을 배우는 것을 두려워하지 않으며, 동료와의 커뮤니케이션을 중요하게 생각합니다.</p>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h3>사용 가능한 기술</h3>
+                <br>
+                <div class="skills-container">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>💻 내 프로젝트</h2>
+        <div class="project-grid">
+            <article class="project-card">
+                <div class="card-img">프로젝트 이미지 1</div>
+                <div class="card-body">
+                    <h3>개인 블로그 만들기</h3>
+                    <p>React와 Gatsby를 활용하여 만든 정적 블로그 사이트입니다. 마크다운으로 글을 작성할 수 있습니다.</p>
+                    <a href="#" style="color:var(--primary-color); font-weight:bold;">자세히 보기 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="card-img">프로젝트 이미지 2</div>
+                <div class="card-body">
+                    <h3>투두 리스트 앱</h3>
+                    <p>JavaScript의 LocalStorage 기능을 활용하여 데이터가 저장되는 할 일 관리 앱입니다.</p>
+                    <a href="#" style="color:var(--primary-color); font-weight:bold;">자세히 보기 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="card-img">프로젝트 이미지 3</div>
+                <div class="card-body">
+                    <h3>날씨 정보 웹사이트</h3>
+                    <p>OpenWeather API를 연동하여 실시간 날씨 정보를 보여주는 웹사이트입니다.</p>
+                    <a href="#" style="color:var(--primary-color); font-weight:bold;">자세히 보기 &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>📧 연락하기</h2>
+        <div class="contact-info">
+            <p>함께 일하고 싶으시거나 궁금한 점이 있으다면 언제든 연락주세요.</p>
+            <br>
+            <p><strong>Email:</strong> myemail@example.com</p>
+            <p><strong>GitHub:</strong> github.com/username</p>
+            <br>
+            <a href="mailto:myemail@example.com" class="btn">메일 보내기</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Hong Gil Dong. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
