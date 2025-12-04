@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>김용문 | 포트폴리오</title>
     <style>
-        /* --- 1. 기본 설정 및 변수 (다크 블루 테마 적용) --- */
+        /* --- 1. 기본 설정 및 변수 (검보라 테마 적용) --- */
         :root {
-            /* 포인트 색상: 어두운 배경에서 돋보이는 밝은 파란색 */
-            --primary-color: #64b5f6; 
+            /* 포인트 색상: 어두운 보라 배경에서 돋보이는 밝은 라벤더/바이올렛 */
+            --primary-color: #BB86FC; 
             
-            /* 기본 텍스트 색상: 밝은 회색/흰색 계열 */
-            --text-color: #e3f2fd;       
-            
-            /* 보조 텍스트 색상 (설명 등): 약간 어두운 회색 */
-            --secondary-text: #b0bec5;
+            /* 포인트 색상 (호버 시): 조금 더 밝은 보라 */
+            --primary-hover: #D4B3FD;
 
-            /* 전체 배경색: 아주 깊은 검푸른색 */
-            --bg-color: #0a1929;      
+            /* 기본 텍스트 색상: 아주 연한 보라빛 흰색 */
+            --text-color: #EBDFFF;       
             
-            /* 카드/헤더 배경색: 기본 배경보다 약간 밝은 남색 */
-            --container-bg: #132f4c;
+            /* 보조 텍스트 색상: 톤 다운된 회보라색 */
+            --secondary-text: #B3A5C7;
+
+            /* 전체 배경색: 아주 깊은 검보라색 (거의 검정에 가까움) */
+            --bg-color: #120C1F;      
+            
+            /* 카드/헤더 배경색: 기본 배경보다 약간 밝은 딥 퍼플 */
+            --container-bg: #1F1B2D;
+
+            /* 테두리 색상: 은은한 보라색 선 */
+            --border-color: #352F4D;
         }
 
         * {
@@ -41,8 +47,8 @@
 
         /* --- 2. 레이아웃 & 헤더 --- */
         header {
-            background-color: var(--container-bg); /* 배경색 변경 */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5); /* 그림자 더 진하게 */
+            background-color: var(--container-bg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* 그림자 조금 더 진하게 */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -50,7 +56,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #1e4976; /* 헤더 하단 경계선 추가 */
+            border-bottom: 1px solid var(--border-color); /* 보라색 경계선 */
         }
 
         .logo {
@@ -66,6 +72,7 @@
 
         nav a:hover {
             color: var(--primary-color);
+            text-shadow: 0 0 8px rgba(187, 134, 252, 0.4); /* 살짝 빛나는 효과 추가 */
         }
 
         /* --- 3. 공통 섹션 스타일 --- */
@@ -86,9 +93,9 @@
         #home {
             text-align: center;
             padding: 100px 20px;
-            background-color: var(--container-bg); /* 배경색 변경 */
+            background-color: var(--container-bg);
             margin-bottom: 20px;
-            border-bottom: 1px solid #1e4976;
+            border-bottom: 1px solid var(--border-color);
         }
 
         #home h1 {
@@ -99,22 +106,23 @@
 
         #home p {
             font-size: 1.2rem;
-            color: var(--secondary-text); /* 보조 텍스트 색상 적용 */
+            color: var(--secondary-text);
             margin-bottom: 30px;
         }
 
         .btn {
             background-color: var(--primary-color);
-            color: var(--bg-color); /* 버튼 글자색을 어둡게 하여 대비 효과 */
+            color: #000000; /* 버튼 글자색을 검정으로 하여 가독성 확보 */
             padding: 10px 25px;
             border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
+            transition: all 0.3s ease;
         }
 
         .btn:hover { 
-            background-color: #90caf9; /* 호버 시 더 밝게 */
+            background-color: var(--primary-hover);
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4); /* 보라색 빛 번짐 효과 */
         }
 
         /* --- 5. 소개 & 스킬 --- */
@@ -139,12 +147,12 @@
         }
 
         .skill-tag {
-            background-color: #1c4b7a; /* 스킬 태그 배경 어둡게 */
-            color: #90caf9; /* 스킬 태그 글자 밝게 */
+            background-color: #2A223D; /* 스킬 태그 배경: 어두운 보라 */
+            color: var(--primary-color);
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: bold;
-            border: 1px solid #64b5f6; /* 테두리 추가 */
+            border: 1px solid var(--border-color);
         }
 
         /* --- 6. 프로젝트 (카드 디자인) --- */
@@ -155,23 +163,23 @@
         }
 
         .project-card {
-            background: var(--container-bg); /* 카드 배경 변경 */
+            background: var(--container-bg);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* 그림자 조정 */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
             transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #1e4976; /* 미세한 테두리 */
+            border: 1px solid var(--border-color);
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            border-color: var(--primary-color);
+            box-shadow: 0 8px 20px rgba(15, 11, 25, 0.8);
+            border-color: var(--primary-color); /* 호버 시 테두리 밝게 */
         }
 
         .card-img {
             height: 200px;
-            background-color: #0d2339; /* 이미지 영역 배경 더 어둡게 */
+            background-color: #181226; /* 이미지 영역 배경 더 어둡게 */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -189,7 +197,7 @@
         }
         
         .card-body p { 
-            color: var(--secondary-text); /* 보조 텍스트 색상 적용 */
+            color: var(--secondary-text);
             margin-bottom: 15px; 
             font-size: 0.95rem; 
         }
@@ -202,7 +210,7 @@
             background-color: var(--container-bg);
             padding: 40px;
             border-radius: 10px;
-            border: 1px solid #1e4976;
+            border: 1px solid var(--border-color);
         }
 
         .contact-info strong {
@@ -210,12 +218,12 @@
         }
 
         footer {
-            background-color: #05111a; /* 가장 어두운 배경 */
+            background-color: #0B0911; /* 가장 어두운 배경 (거의 블랙) */
             color: var(--secondary-text);
             text-align: center;
             padding: 30px 20px;
             margin-top: 80px;
-            border-top: 1px solid #1e4976;
+            border-top: 1px solid var(--border-color);
         }
 
         /* --- 8. 모바일 반응형 --- */
@@ -224,7 +232,6 @@
             #home h1 { font-size: 2rem; }
         }
         
-        /* 부드러운 스크롤 */
         html { scroll-behavior: smooth; }
     </style>
 </head>
