@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인 기술 블로그 | 김용문</title>
+
+<style>
+:root {
+    --text-color: #F0F4F8;
+    --secondary-text: #94A3B8;
+    --primary-color: #8B5CF6;
+    --accent-cyan: #38BDF8;
+    --bg-gradient: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%);
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --shadow-elevation: 0 10px 30px -10px rgba(2, 6, 23, 0.7);
+    --backdrop-blur: blur(16px);
+    --header-height: 80px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Pretendard', system-ui, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: var(--backdrop-blur);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 20px;
+}
+
+/* --- Hero --- */
+.project-hero {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.project-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.project-hero p {
+    color: var(--secondary-text);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.tech-tags span {
+    display: inline-block;
+    margin: 0 8px 10px;
+    padding: 8px 18px;
+    border-radius: 12px;
+    background: rgba(49, 46, 129, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    font-weight: 600;
+}
+
+/* --- Section Card --- */
+.section-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border: var(--glass-border);
+    border-radius: 24px;
+    padding: 50px;
+    margin-bottom: 60px;
+    box-shadow: var(--shadow-elevation);
+}
+
+.section-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--accent-cyan);
+}
+
+.section-card ul {
+    padding-left: 20px;
+}
+
+.section-card li {
+    margin-bottom: 12px;
+}
+
+/* --- Back Button --- */
+.back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--accent-cyan);
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.9rem;
+}
+
+.action-row {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-weight: 700;
+    color: #E2E8F0;
+    background: rgba(49, 46, 129, 0.45);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    backdrop-filter: var(--backdrop-blur);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    background: rgba(49, 46, 129, 0.6);
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, var(--primary-color), #4F46E5);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 10px 24px rgba(139, 92, 246, 0.28);
+}
+
+.action-btn.primary:hover {
+    box-shadow: 0 16px 40px rgba(139, 92, 246, 0.45);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Kim's Portfolio</div>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="project-hero">
+        <h1>병원 내 네트워크 인프라 및 서비스 구축</h1>
+        <p>JSP 기반 웹 사이트를 직접 설계·구현하며</br>
+        사이트 서비스를 구축한 프로젝트</p>
+
+        <div class="tech-tags">
+            <span>JAVA</span>
+            <span>Oracle</span>
+            <span>MyBatis</span>
+            <span>Apache Tomcat</span>
+            <span>HTML</span>
+            <span>JavaScript</span>
+            <span>CSS</span>
+            <span>JDK</span>
+            <span>Servlet</span>
+            <span>JSP</span>
+            <span>JSTL</span>
+        </div>
+    </section>
+
+    <!-- 개요 -->
+    <section class="section-card">
+        <h2>프로젝트 개요</h2>
+        <p>
+            쉬었음 청년들의 경제활동 감소로 인한 경제적·사회적 이슈로 인한 문제를 해결하기 위해
+            정기적인 모임 및 수업 활동을 통해
+            <strong>청년들의 경제적·사회적 활동을 증가</strong>시키기 위한 웹 사이트 제작 프로젝트입니다.
+        </p>
+    </section>
+
+    <!-- 진행 과정 -->
+    <section class="section-card">
+        <h2>진행 과정</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript를 활용한 웹 페이지 제작</li>
+            <li>Eclipse환경에서 JAVA를 사용해 JSP 사이트 제작</li>
+            <li>MVC2 패턴을 기반으로 설계</li>
+            <li>Oracle DB를 이용한 DB 구축 및 MyBatis를 통한 연동</li>
+            <li>동기 및 비동기 요청을 통해 데이터 처리</li>
+        </ul>
+    </section>
+
+    <!-- 문제 & 해결 -->
+    <section class="section-card">
+        <h2>문제와 해결</h2>
+        <p>
+            초기 ERD 설계 및 정규화 과정에서 과도한 정규화를 적용하여 유지보수가 어려웠으며
+            데이터를 처리하는 과정에서 과도한 처리가 이루어졌습니다.
+            이를 해결하기 위해 정규화를 완화해 구조를 단순화하였고, 참조를 줄여 데이터 처리 과정을 줄였습니다.
+        </p>
+    </section>
+
+    <!-- 결과 -->
+    <section class="section-card">
+        <h2>결과 및 성과</h2>
+        <ul>
+            <li>사이트 이용 시 지연시간 감소</li>
+            <li>웹 페이지 간 정상적인 이동 및 데이터 정상 처리</li>
+            <li>웹 사이트의 구조 확인 및 보안적 안목 증가</li>
+        </ul>
+
+        <div class="action-row">
+        <a class="action-btn primary" href="https://www.notion.so/3-_-2801933f7e5a81e89789e1b8029207cd" target="_blank" rel="noopener">
+            노션 페이지 이동
+        </a>
+        <a class="action-btn" href="./files/web_portfolio.pdf" download>
+            포트폴리오 다운로드
+        </a>
+    </div>
+    </section>
+
+    <!-- 회고 -->
+    <section class="section-card">
+        <h2>회고</h2>
+        <p>
+            단순 구현을 넘어 <strong>“구조를 설계하는 경험”</strong>을 할 수 있었던 프로젝트였습니다.
+            이후 프로젝트에서는 초기 설계 단계의 중요성을 더욱 인식하게 되었습니다.
+        </p>
+    </section>
+
+    <a href="/index.html#projects" class="back-btn">← 프로젝트 목록으로 돌아가기</a>
+
+</main>
+
+<footer>
+    <p>© 2025 Kim Yong Moon</p>
+</footer>
+
+</body>
+</html>
