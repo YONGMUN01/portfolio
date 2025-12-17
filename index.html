@@ -231,14 +231,19 @@
         }
 
         .project-card {
-            background: var(--glass-bg);
-            backdrop-filter: var(--backdrop-blur);
-            border-radius: 20px;
-            overflow: hidden;
-            border: var(--glass-border);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border-radius: 20px;
+    overflow: hidden;
+    border: var(--glass-border);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+    display: flex;              /* ★ 추가 */
+    flex-direction: column;     /* ★ 추가 */
+
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 
         .project-card:hover {
             transform: translateY(-12px) scale(1.01);
@@ -267,10 +272,11 @@
 
         .card-body {
     padding: 30px;
-    position: relative;   /* 추가 */
-    min-height: 200px;    /* 링크 공간 확보 (중요) */
+    display: flex;
+    flex-direction: column;
+    flex: 1;            /* ★ 핵심 */
 }
-        
+
         .card-body h3 { 
             font-size: 1.4rem; 
             margin-bottom: 15px; 
@@ -283,17 +289,41 @@
         }
 
         .project-link {
+    margin-top: auto;
     color: var(--accent-cyan);
     font-weight: 700;
-    position: absolute;   /* 추가 */
-    bottom: 24px;         /* 카드 하단 여백 */
-    left: 30px;           /* 카드 좌측 여백 */
+
     display: inline-flex;
     align-items: center;
     gap: 8px;
+
+    position: relative;
+    padding-bottom: 4px;
+
+    width: fit-content; 
 }
-        
+
+
+
+
         .project-link:hover { gap: 12px; }
+
+        .project-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-cyan);
+    transition: width 0.3s ease;
+}
+
+.project-link:hover::after {
+    width: 100%;
+}
+
+
 
         /* --- 7. 연락처 & 푸터 --- */
         .contact-box {
