@@ -1,362 +1,101 @@
 <!DOCTYPE html>
 <html lang="ko">
+<link rel="stylesheet" href="/assets/css/header.css">
+<link rel="stylesheet" href="/assets/css/index.css">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>김용문 | 포트폴리오</title>
-    <style>
-        /* --- 1. 기본 설정 및 변수 (Deep Navy & Dark Purple 테마) --- */
-        :root {
-            /* 텍스트 색상 */
-            --text-color: #F0F4F8;
-            --secondary-text: #94A3B8;
-
-            /* 포인트 컬러: Cyan + Purple */
-            --primary-color: #8B5CF6; 
-            --accent-cyan: #38BDF8; 
-            
-            /* 배경 그라데이션: 깊은 바다 느낌 */
-            --bg-gradient: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%);
-
-            /* 유리 질감 변수 */
-            --glass-bg: rgba(15, 23, 42, 0.6);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-            --shadow-elevation: 0 10px 30px -10px rgba(2, 6, 23, 0.7);
-            --backdrop-blur: blur(16px);
-            
-            /* 헤더 높이 변수 (스크롤 위치 계산용) */
-            --header-height: 80px; 
-        }
-
-        /* ★ 부드러운 이동 핵심 코드 ★ */
-        /* html { 
-            scroll-behavior: smooth;
-            scroll-padding-top: var(--header-height);
-        } */
-
-        /* ===== 추가된 부분 (요청한 작업) ===== */
-        /* body {
-            scroll-behavior: smooth;
-        } */
-
-        section {
-            scroll-margin-top: var(--header-height);
-        }
-        /* ===== 여기까지 ===== */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background: var(--bg-gradient);
-            min-height: 100vh;
-            background-attachment: fixed;
-        }
-
-        a { text-decoration: none; color: inherit; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        ul { list-style: none; }
-
-        /* --- 2. 헤더 (유리 질감) --- */
-        header {
-            background-color: rgba(15, 23, 42, 0.75);
-            backdrop-filter: var(--backdrop-blur);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            height: var(--header-height);
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #fff, var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--secondary-text);
-            position: relative;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-        nav a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-            box-shadow: 0 0 10px var(--primary-color);
-        }
-
-        nav a:hover::before {
-            width: 100%;
-        }
-
-        /* --- 3. 공통 섹션 --- */
-        section {
-            padding: 100px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            text-align: center;
-            color: #fff;
-            position: relative;
-        }
-        
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--primary-color));
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
-        /* --- 4. 히어로 섹션 --- */
-        #home {
-            text-align: center;
-            padding: 140px 20px 100px;
-            background: radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.1), transparent 60%);
-        }
-
-        #home h1 {
-            font-size: 3.8rem;
-            margin-bottom: 30px;
-            line-height: 1.2;
-            text-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        #home p {
-            font-size: 1.25rem;
-            color: var(--secondary-text);
-            margin-bottom: 50px;
-            font-weight: 300;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, var(--primary-color), #4F46E5);
-            color: #fff;
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: inline-block;
-            border: 1px solid rgba(255,255,255,0.1);
-            cursor: pointer;
-        }
-
-        .btn:hover { 
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.6);
-            filter: brightness(1.1);
-        }
-
-        /* --- 5. 소개 & 스킬 --- */
-        .about-container {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.4));
-            backdrop-filter: var(--backdrop-blur);
-            border: var(--glass-border);
-            border-radius: 24px;
-            padding: 60px;
-            box-shadow: var(--shadow-elevation);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 60px;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-cyan);
-        }
-
-        .skill-tag {
-            background: rgba(49, 46, 129, 0.6); 
-            color: #E2E8F0;
-            padding: 10px 22px;
-            border-radius: 12px;
-            font-weight: 600;
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            display: inline-block;
-            margin: 0 8px 12px 0;
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: var(--primary-color);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
-        }
-
-        /* --- 6. 프로젝트 --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .project-card {
-    background: var(--glass-bg);
-    backdrop-filter: var(--backdrop-blur);
-    border-radius: 20px;
-    overflow: hidden;
-    border: var(--glass-border);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-
-    display: flex;              /* ★ 추가 */
-    flex-direction: column;     /* ★ 추가 */
-
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-
-        .project-card:hover {
-            transform: translateY(-12px) scale(1.01);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-            background: rgba(30, 27, 75, 0.5);
-        }
-
-        .card-img {
-            height: 240px;
-            background: #0f172a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary-text);
-            font-weight: bold;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-img::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
-        }
-
-        .card-body {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;            /* ★ 핵심 */
-}
-
-        .card-body h3 { 
-            font-size: 1.4rem; 
-            margin-bottom: 15px; 
-            color: #fff; 
-        }
-
-        .card-body p { 
-            color: var(--secondary-text); 
-            margin-bottom: 25px; 
-        }
-
-        .project-link {
-    margin-top: auto;
-    color: var(--accent-cyan);
-    font-weight: 700;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    position: relative;
-    padding-bottom: 4px;
-
-    width: fit-content; 
-}
-
-
-
-
-        .project-link:hover { gap: 12px; }
-
-        .project-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent-cyan);
-    transition: width 0.3s ease;
-}
-
-.project-link:hover::after {
-    width: 100%;
-}
-
-
-
-        /* --- 7. 연락처 & 푸터 --- */
-        .contact-box {
-            background: linear-gradient(135deg, rgba(30, 27, 75, 0.8), rgba(15, 23, 42, 0.8));
-            backdrop-filter: var(--backdrop-blur);
-            border: var(--glass-border);
-            padding: 80px 40px;
-            text-align: center;
-            border-radius: 24px;
-            box-shadow: var(--shadow-elevation);
-        }
-
-        footer {
-            margin-top: 100px;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: rgba(255,255,255,0.3);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            #home h1 { font-size: 2.5rem; }
-            section { padding: 80px 20px; }
-            .about-container { padding: 30px; }
-        }
-    </style>
 </head>
+
 <body>
 
-<header>
-    <div class="logo">Kim's Portfolio</div>
-    <nav>
+    <div id="header-container"></div>
+
+    <section id="home">
+        <h1>안녕하세요,<br>보안 컨설턴트 김용문입니다.</h1>
+        <p>신뢰를 바탕으로 사람들의 정보를 보호하기위해 노력합니다.<br>
+            윤리의식을 갖고 더 나은 보안구조를 설계하며 개선방안을 도출합니다.</p>
+        <a href="#projects" class="btn">프로젝트 보기</a>
+    </section>
+
+    <section id="about">
+        <h2>소개 & 스킬</h2>
+        <div class="about-container">
+            <div class="about-text" style="flex: 1; min-width: 300px;">
+                <h3>"보안을 설계하는 보안 컨설턴트"</h3>
+                <p>단편적인 보안 조치를 넘어, 시스템 전반의 구조와 연결 지점을 기준으로 취약점을 바라봅니다.</p>
+                <p>공격 시나리오를 기반으로 위험을 분석하고, 서비스 환경에 적합한 개선 방향을 설계하는 과정에 집중합니다.</p>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h3>기술 스택</h3>
+                <br>
+                <div>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">JAVA</span>
+                    <span class="skill-tag">DB</span>
+                    <span class="skill-tag">Cisco</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Window</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>내 프로젝트</h2>
+        <div class="project-grid">
+            <article class="project-card">
+                <div class="card-img">프로젝트 이미지 1</div>
+                <div class="card-body">
+                    <h3>틈새빛 웹 개발 프로젝트</h3>
+                    <p>HTML, CSS, JS를 사용해 사이트의 구조를 잡고 JAVA와 Apache를 사용해 서비스가 실제로 작동하도록 진행한 프로젝트입니다.</p>
+                    <a href="./app/web_project.html" class="project-link">자세히 보기 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="card-img">프로젝트 이미지 2</div>
+                <div class="card-body">
+                    <h3>병원 네트워크 인프라 및 서비스 구축</h3>
+                    <p>Packet Tracer와 GNS를 사용하여 네트워크 인프라를 구축하고 Linux 및 Window서버를 활용하여 사이트 서비스를 구축한 프로젝트입니다.</p>
+                    <a href="./app/semi_project.html" class="project-link">자세히 보기 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="card-img">프로젝트 이미지 3</div>
+                <div class="card-body">
+                    <h3>불펜토크 취약점 진단 및 모의해킹</h3>
+                    <p>고객사의 기존 취약했던 인프라를 개선하고, Linux와 Window를 사용해 기존 서버 보완 및 서버 추가, 웹 방화벽 및 보안장비를 구비해 진행한 프로젝트입니다.</p>
+                    <a href="./app/bullpen_project.html" class="project-link">자세히 보기 &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>연락하기</h2>
+        <div class="contact-box">
+            <p>새로운 기회와 기술적인 대화는 언제나 환영합니다.<br>
+                궁금한 점이 있으시다면 언제든 편하게 연락 주세요.</p>
+            <br>
+            <div style="margin-bottom: 30px;">
+                <p><strong>Email:</strong> rladyd8877@naver.com</p>
+                <p><strong>GitHub:</strong> github.com/YONGMUN01</p>
+            </div>
+            <a href="mailto:rladyd8877@naver.com" class="btn">메일 보내기</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Designed & Built by Kim Yong Mun<br>&copy; 2025 All rights reserved.</p>
+    </footer>
+
+    <nav class="side-nav">
         <ul>
             <li><a href="#home">홈</a></li>
             <li><a href="#about">소개</a></li>
@@ -364,138 +103,10 @@
             <li><a href="#contact">연락처</a></li>
         </ul>
     </nav>
-</header>
 
-<section id="home">
-    <h1>안녕하세요,<br>보안 컨설턴트 김용문입니다.</h1>
-    <p>신뢰를 바탕으로 사람들의 정보를 보호하기위해 노력합니다.<br>
-       윤리의식을 갖고 더 나은 보안구조를 설계하며 개선방안을 도출합니다.</p>
-    <a href="#projects" class="btn">프로젝트 보기</a>
-</section>
-
-<section id="about">
-    <h2>소개 & 스킬</h2>
-    <div class="about-container">
-        <div class="about-text" style="flex: 1; min-width: 300px;">
-            <h3>"보안을 설계하는 보안 컨설턴트"</h3>
-            <p>단편적인 보안 조치를 넘어, 시스템 전반의 구조와 연결 지점을 기준으로 취약점을 바라봅니다.</p>
-            <p>공격 시나리오를 기반으로 위험을 분석하고, 서비스 환경에 적합한 개선 방향을 설계하는 과정에 집중합니다.</p>
-        </div>
-        <div style="flex: 1; min-width: 300px;">
-            <h3>기술 스택</h3>
-            <br>
-            <div>
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">JAVA</span>
-                <span class="skill-tag">DB</span>
-                <span class="skill-tag">Cisco</span>
-                <span class="skill-tag">Linux</span>
-                <span class="skill-tag">Window</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="projects">
-    <h2>내 프로젝트</h2>
-    <div class="project-grid">
-        <article class="project-card">
-            <div class="card-img">프로젝트 이미지 1</div>
-            <div class="card-body">
-                <h3>틈새빛 웹 개발 프로젝트</h3>
-                <p>HTML, CSS, JS를 사용해 사이트의 구조를 잡고 JAVA와 Apache를 사용해 서비스가 실제로 작동하도록 진행한 프로젝트입니다.</p>
-                <a href="./app/web_project.html" class="project-link">자세히 보기 &rarr;</a>
-            </div>
-        </article>
-
-        <article class="project-card">
-            <div class="card-img">프로젝트 이미지 2</div>
-            <div class="card-body">
-                <h3>병원 네트워크 인프라 및 서비스 구축</h3>
-                <p>Packet Tracer와 GNS를 사용하여 네트워크 인프라를 구축하고 Linux 및 Window서버를 활용하여 사이트 서비스를 구축한 프로젝트입니다.</p>
-                <a href="./app/semi_project.html" class="project-link">자세히 보기 &rarr;</a>
-            </div>
-        </article>
-
-        <article class="project-card">
-            <div class="card-img">프로젝트 이미지 3</div>
-            <div class="card-body">
-                <h3>불펜토크 취약점 진단 및 모의해킹</h3>
-                <p>고객사의 기존 취약했던 인프라를 개선하고, Linux와 Window를 사용해 기존 서버 보완 및 서버 추가, 웹 방화벽 및 보안장비를 구비해 진행한 프로젝트입니다.</p>
-                <a href="./app/bullpen_project.html" class="project-link">자세히 보기 &rarr;</a>
-            </div>
-        </article>
-    </div>
-</section>
-
-<section id="contact">
-    <h2>연락하기</h2>
-    <div class="contact-box">
-        <p>새로운 기회와 기술적인 대화는 언제나 환영합니다.<br>
-           궁금한 점이 있으시다면 언제든 편하게 연락 주세요.</p>
-        <br>
-        <div style="margin-bottom: 30px;">
-            <p><strong>Email:</strong> rladyd8877@naver.com</p>
-            <p><strong>GitHub:</strong> github.com/YONGMUN01</p>
-        </div>
-        <a href="mailto:rladyd8877@naver.com" class="btn">메일 보내기</a>
-    </div>
-</section>
-
-<footer>
-    <p>Designed & Built by Kim Yong Moon<br>&copy; 2025 All rights reserved.</p>
-</footer>
-
-<script>
-    const headerOffset = 80; // header 높이
-
-    function easeInOutCubic(t) {
-        return t < 0.5
-            ? 4 * t * t * t
-            : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
-    function smoothScrollTo(targetY, duration = 900) {
-        const startY = window.pageYOffset;
-        const distance = targetY - startY;
-        let startTime = null;
-
-        function animation(currentTime) {
-            if (!startTime) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easing = easeInOutCubic(progress);
-
-            window.scrollTo(0, startY + distance * easing);
-
-            if (elapsed < duration) {
-                requestAnimationFrame(animation);
-            }
-        }
-
-        requestAnimationFrame(animation);
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', e => {
-            e.preventDefault();
-
-            const targetId = anchor.getAttribute('href');
-            const target = document.querySelector(targetId);
-
-            if (!target) return;
-
-            const targetPosition =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerOffset;
-
-            smoothScrollTo(targetPosition);
-        });
-    });
-</script>
+    <script src="/assets/js/header.js"></script>
+    <script src="/assets/js/index.js"></script>
 
 </body>
+
 </html>

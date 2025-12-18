@@ -1,0 +1,195 @@
+:root {
+    --text-color: #F0F4F8;
+    --secondary-text: #94A3B8;
+    --primary-color: #8B5CF6;
+    --accent-cyan: #38BDF8;
+    --bg-gradient: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%);
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --shadow-elevation: 0 10px 30px -10px rgba(2, 6, 23, 0.7);
+    --backdrop-blur: blur(16px);
+    --header-height: 80px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Pretendard', system-ui, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    line-height: 1.7;
+    background-attachment: fixed;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 20px;
+}
+
+/* --- Hero --- */
+.project-hero {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.project-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.project-hero p {
+    color: var(--secondary-text);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.tech-tags span {
+    display: inline-block;
+    margin: 0 8px 10px;
+    padding: 8px 18px;
+    border-radius: 12px;
+    background: rgba(49, 46, 129, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    font-weight: 600;
+}
+
+/* --- Section Card --- */
+.section-card {
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 59, 0.7),
+        rgba(15, 23, 42, 0.4)
+    );
+    backdrop-filter: var(--backdrop-blur);
+    border: var(--glass-border);
+    border-radius: 24px;
+    padding: 50px;
+    margin-bottom: 60px;
+    box-shadow: var(--shadow-elevation);
+}
+
+.section-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--accent-cyan);
+}
+
+.section-card ul {
+    padding-left: 20px;
+}
+
+.section-card li {
+    margin-bottom: 12px;
+}
+
+/* --- Back Button --- */
+.back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--accent-cyan);
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.9rem;
+}
+
+.action-row {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-weight: 700;
+    color: #E2E8F0;
+    background: rgba(49, 46, 129, 0.45);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    backdrop-filter: var(--backdrop-blur);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    background: rgba(49, 46, 129, 0.6);
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, var(--primary-color), #4F46E5);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 24px rgba(139, 92, 246, 0.28);
+}
+
+.action-btn.primary:hover {
+    box-shadow: 0 16px 40px rgba(139, 92, 246, 0.45);
+}
+
+/* --- Side Navigation --- */
+.side-nav {
+    position: fixed;
+    top: 50%;
+    right: 32px;
+    transform: translateY(-50%);
+    z-index: 900;
+}
+
+.side-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.side-nav a {
+    display: block;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--secondary-text);
+    text-decoration: none;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(139, 92, 246, 0.18);
+    backdrop-filter: var(--backdrop-blur);
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.side-nav a:hover {
+    color: #fff;
+    background: rgba(79, 70, 229, 0.65);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+}
+
+.side-nav a[href="/index.html"] {
+    color: #F1F5F9;
+    background: rgba(99, 102, 241, 0.44);
+    border-color: rgba(165, 180, 252, 0.55);
+    box-shadow:
+        0 0 0 1px rgba(165, 180, 252, 0.22),
+        0 12px 32px rgba(30, 27, 75, 0.58);
+}
+
+/* hover 시 */
+.side-nav a[href="/index.html"]:hover {
+    background: rgba(99, 102, 241, 0.58);
+    box-shadow:
+        0 0 22px rgba(165, 180, 252, 0.38),
+        0 14px 34px rgba(30, 27, 75, 0.6);
+}
