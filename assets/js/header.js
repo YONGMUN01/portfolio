@@ -31,3 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("헤더 로딩 실패:", err);
         });
 });
+
