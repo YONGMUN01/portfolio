@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("/header.html")
+    fetch("/portfolio/header.html")
         .then(res => {
             if (!res.ok) throw new Error("Header load failed");
             return res.text();
