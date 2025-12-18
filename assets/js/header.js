@@ -1,30 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("header-container");
-    if (!container) return;
+    const headerContainer = document.getElementById("header-container");
+    if (!headerContainer) return;
 
+    // 현재 페이지 경로 분석
     const path = window.location.pathname;
-    const segments = path.split("/").filter(Boolean);
 
-    /*
-      GitHub Pages 기준
-      /portfolio/index.html           → segments.length === 2
-      /portfolio/app/page.html        → segments.length >= 3
-    */
+    // GitHub Pages 기준: /portfolio/ 가 루트
+    // index.html → /portfolio/index.html
+    // app/page.html → /portfolio/app/page.html
+    const depth = path.split("/").filter(Boolean).length;
 
-    const headerPath =
-        segments.length === 2
-            ? "header.html"
-            : "../header.html";
+    // depth === 2 → /portfolio/index.html
+    // depth >= 3 → /portfolio/app/xxx.html
+    const headerPath = depth === 2
+        ? "header.html"
+        : "../header.html";
 
     fetch(headerPath)
-        .then(res => {
-            if (!res.ok) throw new Error("Header load failed");
-            return res.text();
-        })
-        .then(html => {
-            container.innerHTML = html;
-        })
-        .catch(err => {
-            console.error("헤더 로딩 실패:", err);
-        });
+        .then(res => res.text())
+        .then(html => headerContainer.innerHTML = html)
+        .catch(err => console.error("Header load failed:", err));
 });
