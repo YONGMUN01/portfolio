@@ -75,7 +75,7 @@ const headerOffset = 80; // header 높이
     }
 
     function update() {
-        track.style.transform = `translateX(${-index * cardWidth()}px)`;
+        track.style.transform = `translateX(${-index * cardWidth() - 23}px)`;
     }
 
     function refresh() {
