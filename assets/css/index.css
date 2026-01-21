@@ -236,15 +236,15 @@
 
  .project-track {
      display: flex;
-     margin:20px 0px 0px;
-     gap: 40px;
+     margin: 20px 0px 0px;
+     gap: 30px;
      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
  }
 
  /* 카드 크기 고정 (슬라이드 핵심) */
  .project-card {
-     min-width: 326.5px;
-     max-width: 326.5px;
+     min-width: 320px;
+     max-width: 320px;
      background: var(--glass-bg);
      backdrop-filter: var(--backdrop-blur);
      border-radius: 20px;
