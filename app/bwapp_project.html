@@ -18,21 +18,17 @@
         <!-- HERO -->
         <section class="project-hero" id="top">
             <h1>bWAPP 기반 웹 취약점 모의해킹 진단</h1>
-            <p>JSP 기반 웹 사이트를 직접 설계·구현하며</br>
-                사이트 서비스를 구축한 프로젝트</p>
+            <p>bWAPP 대상으로 웹 취약점 모의해킹을 진행한</br>
+                결과물을 정리해 만든 모의해킹 보고서 </p>
 
             <div class="tech-tags">
-                <span>JAVA</span>
-                <span>Oracle</span>
-                <span>MyBatis</span>
-                <span>Apache Tomcat</span>
-                <span>HTML</span>
-                <span>JavaScript</span>
-                <span>CSS</span>
-                <span>JDK</span>
-                <span>Servlet</span>
-                <span>JSP</span>
-                <span>JSTL</span>
+                <span>Rocky Linux</span>
+                <span>Kali Linux</span>
+                <span>Burp Suite</span>
+                <span>Metasploit</span>
+                <span>Ettercap</span>
+                <span>Wireshark</span>
+                <span>Word</span>
             </div>
         </section>
 
@@ -40,9 +36,8 @@
         <section class="section-card" id="overview">
             <h2>프로젝트 개요</h2>
             <p>
-                쉬었음 청년들의 경제활동 감소로 인한 경제적·사회적 이슈로 인한 문제를 해결하기 위해
-                정기적인 모임 및 수업 활동을 통해
-                <strong>청년들의 경제적·사회적 활동을 증가</strong>시키기 위한 웹 사이트 제작 프로젝트입니다.
+                웹 애플리케이션 보안 취약점 분석 역량을 검증하기 위해 <strong>OWASP Top 10(2021)</strong>
+                을 기준으로 실제 공격 시나리오 기반 모의 해킹을 수행한 결과 보고서입니다.
             </p>
         </section>
 
@@ -50,21 +45,19 @@
         <section class="section-card" id="process">
             <h2>진행 과정</h2>
             <ul>
-                <li>HTML, CSS, JavaScript를 활용한 웹 페이지 제작</li>
-                <li>Eclipse환경에서 JAVA를 사용해 JSP 사이트 제작</li>
-                <li>MVC2 패턴을 기반으로 설계</li>
-                <li>Oracle DB를 이용한 DB 구축 및 MyBatis를 통한 연동</li>
-                <li>동기 및 비동기 요청을 통해 데이터 처리</li>
+                <li>OWASP Top 10 기반 취약점 분석 및 공격 시나리오 설계</li>
+                <li>Burp Suite를 활용한 요청 변조 및 인증 우회 검증</li>
+                <li>Metasploit을 이용한 ShellShock 원격 명령 실행 검증</li>
+                <li>발견 취약점에 대한 보안 대책 정리 및 보고서 작성</li>
             </ul>
         </section>
 
         <!-- 문제 & 해결 -->
         <section class="section-card" id="issue">
-            <h2>문제와 해결</h2>
+            <h2>공격 시나리오 검증 및 위험 분석</h2>
             <p>
-                초기 ERD 설계 및 정규화 과정에서 과도한 정규화를 적용하여 유지보수가 어려웠으며
-                데이터를 처리하는 과정에서 과도한 처리가 이루어졌습니다.</br>
-                이를 해결하기 위해 정규화를 완화해 구조를 단순화하였고, 참조를 줄여 데이터 처리 과정을 줄였습니다.
+                본 모의해킹에서는 <strong>OWASP Top 10(2021)</strong> 항목을 기준으로 각 취약점에 대해 단순 존재 여부 확인이</br>아닌, 실제 공격 시나리오를 구성하여 악용 가능성을 검증하였습니다.</br></br>
+                특히 <strong>입력값 검증 미흡, 인증·권한 검증 부재</strong>로 인해 공격자가 비교적 낮은 난이도로 취약점을 악용할 </br>수 있음을 확인하였습니다.
             </p>
         </section>
 
@@ -72,17 +65,19 @@
         <section class="section-card" id="result">
             <h2>결과 및 성과</h2>
             <ul>
-                <li>사이트 이용 시 지연시간 감소</li>
-                <li>웹 페이지 간 정상적인 이동 및 데이터 정상 처리</li>
-                <li>웹 사이트의 구조 확인 및 보안적 안목 증가</li>
+                <li><strong>OWASP TOP 10(2021) 기준 총 9건의 웹 취약점 식별</strong><br>
+                    (Critical 1건, High 7건, Medium 1건)</li>
+                <li><strong>각 취약점에 대해 단순 존재 여부 확인이 아닌, 실제 공격 시나리오를 구성하여 악용 가능성 검증 수행</strong></li>
+                <li><strong>CVSS v3.1 기준으로 취약점 위험도 산정 및 서비스 영향도(기밀성·무결성·가용성) 평가</strong></li>
+                <li><strong>발견된 취약점에 대해 원인 분석을 수행하고, 적용 가능한 보안 권고안 도출</strong></li>
             </ul>
 
             <div class="action-row">
-                <a class="action-btn primary" href="https://www.notion.so/3-_-2801933f7e5a81e89789e1b8029207cd"
+                <!-- <a class="action-btn primary" href="https://www.notion.so/3-_-2801933f7e5a81e89789e1b8029207cd"
                     target="_blank" rel="noopener">
                     노션 페이지 이동
-                </a>
-                <a class="action-btn primary" href="/portfolio/assets/files/web_portfolio.pdf" target="_blank" rel="noopener">
+                </a> -->
+                <a class="action-btn primary" href="/portfolio/assets/files/bwapp_portfolio.pdf" target="_blank" rel="noopener">
                     포트폴리오 보기
                 </a>
             </div>
@@ -92,8 +87,8 @@
         <section class="section-card" id="review">
             <h2>회고</h2>
             <p>
-                단순 구현을 넘어 <strong>“구조를 설계하는 경험”</strong>을 할 수 있었던 프로젝트였습니다.
-                이후 프로젝트에서는 초기 설계 단계의 중요성을 더욱 인식하게 되었습니다.
+                OWASP Top 10(2021) 항목을 기준으로 취약점 진단을 진행하면서, 각 취약점이 어떤 조건에서 발생하는지와 이를 통해 실제로 어떤 공격이 가능해지는지를 공격 시나리오를 통해 이해할 수 있었습니다.<br><br>
+                또한 단일 취약점의 존재 여부에 그치지 않고, 해당 취약점이 다른 공격으로 확장될 수 있는 가능성까지 함께 고려하며 모의해킹을 진행할 수 있는 경험이었습니다.
             </p>
         </section>
 
